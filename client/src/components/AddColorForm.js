@@ -5,20 +5,37 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
 //styles
 import {StyledButton, StyledAdd, StyledForm, StyledAddTitle} from './Styled'
 
-const AddColorForm = () => {
+const AddColorForm = props => {
+    const{updateColors} = props;
+
     const initialFormValues = {
-        name: '',
-        hex: '#'
+        color: '',
+        code: {hex: '#'}
     }
 
     const [formValues, setValues] = useState(initialFormValues);
 
     const handleChange = e => {
-        setValues({...formValues, [e.target.name]: e.target.value})
+        if(e.target.name === 'color'){
+            setValues({...formValues, [e.target.name]: e.target.value})
+        } else {
+           setValues({...formValues, [e.target.name]:{hex: e.target.value}})
+        }
+        
     }
 
     const addColor = e => {
         e.preventDefault();
+
+        axiosWithAuth()
+            .post('api/colors', formValues)
+            .then(res => {
+                updateColors(res.data)
+            })
+            .catch(err => console.log(err))
+            .finally(
+                setValues(initialFormValues)
+            )
     }
 
     return(
@@ -30,8 +47,8 @@ const AddColorForm = () => {
                     <input 
                         type="text"
                         id="name"
-                        name="name"
-                        value={formValues.name}
+                        name="color"
+                        value={formValues.color}
                         onChange={handleChange}
                     />
                 </label>
@@ -40,8 +57,8 @@ const AddColorForm = () => {
                     <input 
                         type="text"
                         id="hex"
-                        name="hex"
-                        value={formValues.hex}
+                        name="code"
+                        value={formValues.code.hex}
                         onChange={handleChange}
                     />
                 </label>
