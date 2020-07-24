@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../App';
 import BubblePage from '../components/BubblePage';
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import {getLogin as mockLogin} from '../utils/localStorage'
