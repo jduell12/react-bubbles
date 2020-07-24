@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 //styles
-// import {StyledButton, StyledAdd, StyledForm, StyledAddTitle} from './Styled'
+import {StyledButton, StyledAdd, StyledForm, StyledAddTitle} from './Styled'
 
 const AddColorForm = props => {
     const{updateColors} = props;
@@ -39,58 +39,58 @@ const AddColorForm = props => {
     }
 
     return(
-        // <StyledAdd>
-        //     <StyledAddTitle>Add A Color</StyledAddTitle>
-        //     <StyledForm onSubmit={addColor}>
-        //         <label htmlFor="name">
-        //             color name: &nbsp;
-        //             <input 
-        //                 type="text"
-        //                 id="name"
-        //                 name="color"
-        //                 value={formValues.color}
-        //                 onChange={handleChange}
-        //             />
-        //         </label>
-        //         <label htmlFor="hex">
-        //             hex code:
-        //             <input 
-        //                 type="text"
-        //                 id="hex"
-        //                 name="code"
-        //                 value={formValues.code.hex}
-        //                 onChange={handleChange}
-        //             />
-        //         </label>
-        //         <StyledButton>Add Color</StyledButton>
-        //      </StyledForm>
-        // </StyledAdd>
-        <div>
-        <legend>Add A Color</legend>
-        <form onSubmit={addColor}>
-            <label htmlFor="name">
-                color name: &nbsp;
-                <input 
-                    type="text"
-                    id="name"
-                    name="color"
-                    value={formValues.color}
-                    onChange={handleChange}
-                />
-            </label>
-            <label htmlFor="hex">
-                hex code:
-                <input 
-                    type="text"
-                    id="hex"
-                    name="code"
-                    value={formValues.code.hex}
-                    onChange={handleChange}
-                />
-            </label>
-            <button>Add Color</button>
-         </form>
-    </div>
+        <StyledAdd>
+            <StyledAddTitle>Add A Color</StyledAddTitle>
+            <StyledForm onSubmit={addColor}>
+                <label htmlFor="name">
+                    color name: &nbsp;
+                    <input 
+                        type="text"
+                        id="name"
+                        name="color"
+                        value={formValues.color}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label htmlFor="hex">
+                    hex code:
+                    <input 
+                        type="text"
+                        id="hex"
+                        name="code"
+                        value={formValues.code.hex}
+                        onChange={handleChange}
+                    />
+                </label>
+                <StyledButton>Add Color</StyledButton>
+             </StyledForm>
+        </StyledAdd>
+    //     <div>
+    //     <legend>Add A Color</legend>
+    //     <form onSubmit={addColor}>
+    //         <label htmlFor="name">
+    //             color name: &nbsp;
+    //             <input 
+    //                 type="text"
+    //                 id="name"
+    //                 name="color"
+    //                 value={formValues.color}
+    //                 onChange={handleChange}
+    //             />
+    //         </label>
+    //         <label htmlFor="hex">
+    //             hex code:
+    //             <input 
+    //                 type="text"
+    //                 id="hex"
+    //                 name="code"
+    //                 value={formValues.code.hex}
+    //                 onChange={handleChange}
+    //             />
+    //         </label>
+    //         <button>Add Color</button>
+    //      </form>
+    // </div>
     )
 }
 
