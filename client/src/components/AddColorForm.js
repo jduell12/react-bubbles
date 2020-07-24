@@ -14,7 +14,7 @@ const AddColorForm = () => {
     const [formValues, setValues] = useState(initialFormValues);
 
     const handleChange = e => {
-
+        setValues({...formValues, [e.target.name]: e.target.value})
     }
 
     const addColor = e => {
