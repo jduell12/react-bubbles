@@ -3,6 +3,8 @@ import BubblePage from '../components/BubblePage';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import {fetchColors as mockFetchColors} from '../utils/fetchColors';
+
 const colorData = {data: [
     {
       color: 'aliceblue',
@@ -101,9 +103,5 @@ test('renders with no errors', () => {
 
     const addColorBtn = screen.getByText(/add color/i);
     expect(addColorBtn).toBeInTheDocument();
-
-})
-
-test('can add a new color', () => {
 
 })
